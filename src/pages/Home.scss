@@ -1,0 +1,100 @@
+.toolbarButton {
+  --padding-start: 5px;
+  --padding-end: 5px;
+  --color: none;
+  --background: none;
+  --background-activated: none;
+  --box-shadow: none;
+}
+
+.toolbarIcon {
+  font-size: 48px;
+  color: #fff;
+}
+
+.toolbarSectionLine {
+  width: 1px;
+  height: 33px;
+  background: #aaa;
+}
+
+.toolbarText {
+  padding-left: 8px;
+}
+
+.currencyContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+}
+
+.currencySelector {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 8px !important;
+}
+
+.listBg {
+  background: transparent;
+  margin-top: 1vh;
+}
+
+.logoBTC {
+  width: 11vw;
+  padding-right: 8px;
+}
+
+ion-img.logoBTC+ion-text {
+  font-size: 22px;
+}
+
+.homeGraph {
+  height: 35vh;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+}
+
+.valuesContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px 0 15px;
+  padding-top: 4vh;
+  padding-bottom: 4vh;
+  font-size: 20px;
+}
+
+.revenueContainer {
+  text-align: start;
+}
+
+.priceContainer {
+  text-align: end;
+}
+
+.ion-text-center>ion-text {
+  font-size: 22px;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5vh;
+}
+
+.conversionInput {
+  width: 35vw;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 1px 8px 1px 8px !important;
+}
+
+.conversionIcon {
+  font-size: 40px;
+}
+
+.homeSectionLine {
+  height: 2px;
+  width: 70%;
+  background-color: #fff;
+  margin: 0 15% 0 15%;
+}
