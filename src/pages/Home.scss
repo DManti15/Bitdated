@@ -1,0 +1,40 @@
+
+.titleHome{
+    --background: #231123 !important;
+}
+
+.titleHomeText{
+    color: white;
+    --padding-left: 3%;
+    font-size: 1.7rem;
+    font-family: 'Century Gothic';
+}
+
+.menuS{
+    padding-left: 2%;
+    font-size: 50px;
+    color: white;
+}
+
+.titleContainer {
+    display: flex;
+}
+
+//dropPart
+.dropContainer{
+    margin-top: 20px;
+    padding-right: 2%;
+    padding-top: 0px;
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .dropDown{
+    float: right;
+
+  }
+  
+  .currentTitle{
+    float: left;
+    display: flex;
+  }
