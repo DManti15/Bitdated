@@ -1,3 +1,9 @@
+
+.mainToolBar{
+  --background: #231123;
+}
+
+
 .toolbarButton {
   --padding-start: 5px;
   --padding-end: 5px;
@@ -20,6 +26,15 @@
 
 .toolbarText {
   padding-left: 8px;
+  color: #fff;
+  font-family: 'Century Gothic' !important;
+  font-size: 28px;
+}
+
+.currencyName{
+  font-family: 'Century Gothic' !important;
+  font-size: 22px !important;
+  font-weight: 600;
 }
 
 .currencyContainer {
@@ -29,9 +44,17 @@
 }
 
 .currencySelector {
-  border: 2px solid #fff;
-  border-radius: 10px;
+  border: 2px solid #231123;
+  border-radius: 8px;
   padding: 8px !important;
+  font-family: 'Century Gothic' !important;
+  font-size: 14px !important;
+  --placeholder-color: #231123 !important;
+  background: linear-gradient(0deg, rgba(224,220,220,1) 2%, rgba(228,226,226,1) 25%, rgba(236,236,236,1) 48%) !important  ;
+}
+
+.list-md{
+  padding-bottom: 0px !important;
 }
 
 .listBg {
@@ -50,25 +73,38 @@ ion-img.logoBTC+ion-text {
 
 .homeGraph {
   height: 35vh;
-  padding-top: 4vh;
-  padding-bottom: 4vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
 }
 
 .valuesContainer {
   display: flex;
   justify-content: space-between;
   padding: 0 15px 0 15px;
-  padding-top: 4vh;
-  padding-bottom: 4vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   font-size: 20px;
 }
 
 .revenueContainer {
   text-align: start;
+  font-family: 'Century Gothic' !important;
+  font-size: 21px;
+  font-weight: 500;
 }
 
 .priceContainer {
   text-align: end;
+  font-family: 'Century Gothic' !important;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.revenueText{
+  font-family: 'Century Gothic' !important;
+  font-size:18px;
+  font-style: italic;
+  color: #231123;
 }
 
 .ion-text-center>ion-text {
@@ -78,23 +114,34 @@ ion-img.logoBTC+ion-text {
 .inputContainer {
   display: flex;
   justify-content: space-around;
-  margin-top: 5vh;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
 }
 
 .conversionInput {
   width: 35vw;
-  border: 2px solid #fff;
-  border-radius: 10px;
+  border: 2px solid #231123;
+  border-radius: 8px;
   padding: 1px 8px 1px 8px !important;
+  --placeholder-color: #3d107b !important;
+  font-style: italic;
 }
 
 .conversionIcon {
   font-size: 40px;
 }
 
+.convertTitle{
+  font-family: 'Century Gothic' !important;
+  font-size:22px;
+  font-weight: 600;
+  color: #231123;
+}
+
+
 .homeSectionLine {
   height: 2px;
   width: 70%;
-  background-color: #fff;
+  background-color: #3d107b;
   margin: 0 15% 0 15%;
 }
