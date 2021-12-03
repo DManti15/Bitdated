@@ -14,7 +14,7 @@ import {
   IonImg,
   IonInput,
 } from "@ionic/react";
-import React, { useState } from "react";
+import React, { useState,  } from "react";
 import { menu } from "ionicons/icons";
 import { swapHorizontal } from "ionicons/icons";
 import "./Home.scss";
@@ -23,20 +23,20 @@ const Home: React.FC = () => {
   let api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
 
   function myMethod() {
-    api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
     fetch(api)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
         console.log(data);
-        setPriceBTC(data["last_trade_price"]);
-        setPrice24hBTC(data["price_24h"]);
+        setPrice(data["last_trade_price"]);
+        setPrice24h(data["price_24h"]);
+        setSymbol(data["symbol"]);
+        setVolume(data["volume_24h"]);
       });
   }
 
-  window.addEventListener("load", () => {
-    api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
+  window.addEventListener("load", () => {;
     fetch(api)
       .then((response) => {
         return response.json();
@@ -47,9 +47,30 @@ const Home: React.FC = () => {
       });
   });
 
-  const [priceBTC, setPriceBTC] = useState(myMethod);
-  const [price24hBTC, setPrice24hBTC] = useState(myMethod);
-  
+  const [price, setPrice] = useState(myMethod);
+  const [price24h, setPrice24h] = useState(myMethod);
+  const [symbol, setSymbol] = useState(myMethod);
+  const [volume, setVolume] = useState(myMethod);
+  const [currency, setCurrency] = useState<string>('Bitcoin');
+  const [logo, setLogo] = useState<string>("assets/Images/logoBTC.png");  
+
+  function slcChange(e:any){
+      if (e=='Bitcoin'){
+        console.log('Bitcoin');
+        setCurrency('Bitcoin');
+        api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
+        setLogo("assets/Images/logoBTC.png")
+        myMethod()
+    } else if (e=='Etherium'){
+      console.log('Etherium');
+      setCurrency('Etherium');
+      api = "https://api.blockchain.com/v3/exchange/tickers/ETH-USD";
+      setLogo("assets/Images/logoETH.png")
+      myMethod()
+
+    }
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -67,15 +88,14 @@ const Home: React.FC = () => {
             <IonItem color="none" lines="none">
               <IonImg
                 className="logoBTC"
-                src={"assets/Images/logoBTC.png"}
+                src={logo}
               ></IonImg>
-              <IonText className="currencyName">Bitcoin</IonText>
+              <IonText className="currencyName">{currency}</IonText>
             </IonItem>
             <IonItem color="none" lines="none">
               <IonSelect
                 placeholder="Select a Currency"
-                className="currencySelector"
-              >
+                className="currencySelector" onIonChange={e => slcChange(e.detail.value)}>
                 <IonSelectOption value="Bitcoin">Bitcoin</IonSelectOption>
                 <IonSelectOption value="Etherium">Etherium</IonSelectOption>
               </IonSelect>
@@ -92,24 +112,24 @@ const Home: React.FC = () => {
           <div className="revenueContainer">
             <IonText>Currency</IonText>
             <br />
-            <IonText className="revenueText"> BTC-USD</IonText>
+            <IonText className="revenueText"> {symbol}</IonText>
           </div>
           <div className="priceContainer">
             <IonText>Price (24h)</IonText>
             <br />
-            <IonText className="revenueText">${price24hBTC}</IonText>
+            <IonText className="revenueText">${price24h}</IonText>
           </div>
         </div>
         <div className="valuesContainer">
           <div className="revenueContainer">
             <IonText>Miners Revenue</IonText>
             <br />
-            <IonText className="revenueText"> $60000</IonText>
+            <IonText className="revenueText"> ${price}</IonText>
           </div>
           <div className="priceContainer">
-            <IonText>Bitcoin Price</IonText>
+            <IonText>Volume 24h</IonText>
             <br />
-            <IonText className="revenueText">${priceBTC}</IonText>
+            <IonText className="revenueText">${volume}</IonText>
           </div>
         </div>
         <div className="homeSectionLine"></div>
