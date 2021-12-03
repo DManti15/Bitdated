@@ -145,3 +145,13 @@ ion-img.logoBTC+ion-text {
   background-color: #3d107b;
   margin: 0 15% 0 15%;
 }
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+  .logoBTC {
+    width: 50px;
+  }
+
+  .homeGraph {
+    height: 295px;
+  }
+}

@@ -14,34 +14,42 @@ import {
   IonImg,
   IonInput,
 } from "@ionic/react";
+import React, { useState } from "react";
 import { menu } from "ionicons/icons";
 import { swapHorizontal } from "ionicons/icons";
 import "./Home.scss";
 
 const Home: React.FC = () => {
-
   let api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
 
-  function myMethod( )
-    {
-      api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
-      fetch(api)
-      .then(response =>{ return response.json();})
-      .then (data =>{
-        console.log(data);
-      });
-    }
-
-  window.addEventListener("load",()=>{
+  function myMethod() {
     api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
     fetch(api)
-    .then(response =>{ return response.json();})
-    .then (data =>{
-      console.log(data);
-      //setInterval(myMethod, 5000);
-    });
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setPriceBTC(data["last_trade_price"]);
+        setPrice24hBTC(data["price_24h"]);
+      });
+  }
+
+  window.addEventListener("load", () => {
+    api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
+    fetch(api)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        //setInterval(myMethod, 5000);
+      });
   });
 
+  const [priceBTC, setPriceBTC] = useState(myMethod);
+  const [price24hBTC, setPrice24hBTC] = useState(myMethod);
+  
   return (
     <IonPage>
       <IonHeader>
@@ -64,7 +72,10 @@ const Home: React.FC = () => {
               <IonText className="currencyName">Bitcoin</IonText>
             </IonItem>
             <IonItem color="none" lines="none">
-              <IonSelect placeholder="Select a Currency" className="currencySelector">
+              <IonSelect
+                placeholder="Select a Currency"
+                className="currencySelector"
+              >
                 <IonSelectOption value="Bitcoin">Bitcoin</IonSelectOption>
                 <IonSelectOption value="Etherium">Etherium</IonSelectOption>
               </IonSelect>
@@ -86,7 +97,7 @@ const Home: React.FC = () => {
           <div className="priceContainer">
             <IonText>Price (24h)</IonText>
             <br />
-            <IonText className="revenueText"> $35000</IonText>
+            <IonText className="revenueText">${price24hBTC}</IonText>
           </div>
         </div>
         <div className="valuesContainer">
@@ -98,7 +109,7 @@ const Home: React.FC = () => {
           <div className="priceContainer">
             <IonText>Bitcoin Price</IonText>
             <br />
-            <IonText className="revenueText"> $35000</IonText>
+            <IonText className="revenueText">${priceBTC}</IonText>
           </div>
         </div>
         <div className="homeSectionLine"></div>
