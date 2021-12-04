@@ -20,6 +20,7 @@ import { menu } from "ionicons/icons";
 import { swapHorizontal } from "ionicons/icons";
 import "./Home.scss";
 import * as HighCharts from 'highcharts';
+import { clear } from "console";
 
 const Home: React.FC = () => {
   let api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
@@ -46,7 +47,7 @@ const Home: React.FC = () => {
       })
       .then((data) => {
         console.log(data);
-        //setInterval(myMethod, 5000);
+        setInterval(myMethod, 180000);
       });
       fetch(graphAPI)
       .then((response) => {
@@ -58,7 +59,6 @@ const Home: React.FC = () => {
       });
   });
 
-
   const [price, setPrice] = useState(myMethod);
   const [price24h, setPrice24h] = useState(myMethod);
   const [symbol, setSymbol] = useState(myMethod);
@@ -66,17 +66,38 @@ const Home: React.FC = () => {
   const [currency, setCurrency] = useState<string>('Bitcoin');
   const [logo, setLogo] = useState<string>("assets/Images/logoBTC.png");
   
+  let a= JSON.stringify(price);
+  let b= parseFloat(a); 
+
+  let [wa, setWa] = useState<number>(0);
+  let [wo, setWo] = useState<number>(0);
+
+
+  function converter(){
+    if(wo!==0){
+        setWa(wo*b);
+    }
+    if(wa!==0){
+      setWo(wa/b);
+  }
+  }
+
+  function clear(){
+    setWo(0)
+  }
+  function clear2(){
+    setWa(0)
+  }
+
   //Value
 
   function slcChange(e:any){
       if (e=='Bitcoin'){
-        console.log('Bitcoin');
         setCurrency('Bitcoin');
         api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
         setLogo("assets/Images/logoBTC.png")
         myMethod()
     } else if (e=='Etherium'){
-      console.log('Etherium');
       setCurrency('Etherium');
       api = "https://api.blockchain.com/v3/exchange/tickers/ETH-USD";
       setLogo("assets/Images/logoETH.png")
@@ -84,7 +105,9 @@ const Home: React.FC = () => {
 
     }
   }
-   
+
+
+
   return (
     <IonPage>
       <IonHeader>
@@ -154,14 +177,24 @@ const Home: React.FC = () => {
         <div className="ion-text-center ion-margin-top">
           <IonText className="convertTitle">Convert</IonText>
         </div>
+        <div className="valuesContained">
+        <div className="revenueContainer">
+          <IonText className="revenueText"> USD</IonText>
+        </div>
+        <div className="priceContainer">
+            <IonText className="revenueText">Currency</IonText>
+          </div>
+        </div>
         <div className="inputContainer">
           <IonItem color="none" lines="none">
-            <IonInput type="number" placeholder="USD" className="conversionInput" ></IonInput>
+            <IonInput name="num1" type="number" placeholder="USD" className="conversionInput" value={wa} onIonChange={e => setWa(parseFloat(e.detail.value!))} onIonFocus={clear}> </IonInput>
           </IonItem>
-          <IonIcon icon={swapHorizontal} className="conversionIcon"></IonIcon>
+          <IonIcon icon={swapHorizontal} className="conversionIcon" onClick={converter}></IonIcon>
+          
           <IonItem color="none" lines="none">
-            <IonInput type="number" placeholder="BTC" className="conversionInput"></IonInput>
+            <IonInput name="num2" type="number" placeholder="Currency" className="conversionInput" value={wo} onIonChange={e => setWo(parseFloat(e.detail.value!))} onIonFocus={clear2}></IonInput>
           </IonItem>
+
         </div>
       </IonContent>
     </IonPage>
