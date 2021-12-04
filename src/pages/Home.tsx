@@ -47,7 +47,7 @@ const Home: React.FC = () => {
       })
       .then((data) => {
         console.log(data);
-        setInterval(myMethod, 180000);
+        setInterval(myMethod, 5000);
       });
       fetch(graphAPI)
       .then((response) => {
@@ -97,12 +97,15 @@ const Home: React.FC = () => {
         api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
         setLogo("assets/Images/logoBTC.png")
         myMethod()
+        clear()
+        clear2()
     } else if (e=='Etherium'){
       setCurrency('Etherium');
       api = "https://api.blockchain.com/v3/exchange/tickers/ETH-USD";
       setLogo("assets/Images/logoETH.png")
       myMethod()
-
+      clear()
+      clear2()
     }
   }
 
