@@ -13,14 +13,17 @@ import {
   IonText,
   IonImg,
   IonInput,
+  useIonViewDidEnter,
 } from "@ionic/react";
 import React, { useState,  } from "react";
 import { menu } from "ionicons/icons";
 import { swapHorizontal } from "ionicons/icons";
 import "./Home.scss";
+import * as HighCharts from 'highcharts';
 
 const Home: React.FC = () => {
   let api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
+  let graphAPI = "https://api.blockchain.info/charts/market-price?timespan=1weeks&sampled=true&metadata=false&cors=true&format=json"
 
   function myMethod() {
     fetch(api)
@@ -36,7 +39,7 @@ const Home: React.FC = () => {
       });
   }
 
-  window.addEventListener("load", () => {;
+  useIonViewDidEnter( () => {;
     fetch(api)
       .then((response) => {
         return response.json();
@@ -45,14 +48,25 @@ const Home: React.FC = () => {
         console.log(data);
         //setInterval(myMethod, 5000);
       });
+      fetch(graphAPI)
+      .then((response) => {
+        return response.json();
+      })
+      .then((dataG) => {
+        console.log(dataG.values);
+        //setInterval(myMethod, 5000);
+      });
   });
+
 
   const [price, setPrice] = useState(myMethod);
   const [price24h, setPrice24h] = useState(myMethod);
   const [symbol, setSymbol] = useState(myMethod);
   const [volume, setVolume] = useState(myMethod);
   const [currency, setCurrency] = useState<string>('Bitcoin');
-  const [logo, setLogo] = useState<string>("assets/Images/logoBTC.png");  
+  const [logo, setLogo] = useState<string>("assets/Images/logoBTC.png");
+  
+  //Value
 
   function slcChange(e:any){
       if (e=='Bitcoin'){
@@ -70,7 +84,7 @@ const Home: React.FC = () => {
 
     }
   }
-
+   
   return (
     <IonPage>
       <IonHeader>
@@ -95,7 +109,7 @@ const Home: React.FC = () => {
             <IonItem color="none" lines="none">
               <IonSelect
                 placeholder="Select a Currency"
-                className="currencySelector" onIonChange={e => slcChange(e.detail.value)}>
+                className="currencySelector" value={currency} onIonChange={e => slcChange(e.detail.value)}>
                 <IonSelectOption value="Bitcoin">Bitcoin</IonSelectOption>
                 <IonSelectOption value="Etherium">Etherium</IonSelectOption>
               </IonSelect>
@@ -103,7 +117,11 @@ const Home: React.FC = () => {
           </div>
         </IonList>
         <div className="homeSectionLine"></div>
-        <IonImg className="homeGraph" src={"assets/Images/Graph.png"}></IonImg>
+
+        
+        <div id='container' className="display: block;"	></div>
+
+        
         <div className="homeSectionLine"></div>
         <div className="ion-text-center ion-margin-top">
           <IonText className="convertTitle">Prices</IonText>
@@ -138,11 +156,11 @@ const Home: React.FC = () => {
         </div>
         <div className="inputContainer">
           <IonItem color="none" lines="none">
-            <IonInput placeholder="USD" className="conversionInput"></IonInput>
+            <IonInput type="number" placeholder="USD" className="conversionInput" ></IonInput>
           </IonItem>
           <IonIcon icon={swapHorizontal} className="conversionIcon"></IonIcon>
           <IonItem color="none" lines="none">
-            <IonInput placeholder="BTC" className="conversionInput"></IonInput>
+            <IonInput type="number" placeholder="BTC" className="conversionInput"></IonInput>
           </IonItem>
         </div>
       </IonContent>
