@@ -50,7 +50,7 @@ const Home: React.FC = () => {
             <IonIcon icon={menu} className="toolbarIcon"></IonIcon>
           </IonButton>
           <div className="toolbarSectionLine" slot="start"></div>
-          <IonTitle className="toolbarText">Home</IonTitle>
+          <IonTitle className="toolbarText">Bitdated</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
