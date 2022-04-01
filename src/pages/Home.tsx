@@ -14,6 +14,8 @@ import {
   IonImg,
   IonInput,
   useIonViewDidEnter,
+  IonLabel,
+  IonToggle,
 } from "@ionic/react";
 import React, { useState,  } from "react";
 import { menu } from "ionicons/icons";
@@ -21,11 +23,17 @@ import { swapHorizontal } from "ionicons/icons";
 import "./Home.scss";
 import * as HighCharts from 'highcharts';
 import { clear } from "console";
+import { moon } from 'ionicons/icons';
+import ExploreContainer from "../components/ExploreContainer";
 
 const Home: React.FC = () => {
   let api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
   let graphAPI = "https://api.blockchain.info/charts/market-price?timespan=1weeks&sampled=true&metadata=false&cors=true&format=json"
 
+
+  const toggleDarkModeHandler = () => document.body.classList.toggle("dark");
+
+  
   function myMethod() {
     fetch(api)
       .then((response) => {
@@ -107,6 +115,9 @@ const Home: React.FC = () => {
   }
 
 
+  
+
+
 
   return (
     <IonPage>
@@ -129,6 +140,14 @@ const Home: React.FC = () => {
               ></IonImg>
               <IonText className="currencyName">{currency}</IonText>
             </IonItem>
+            <IonItem lines="none">
+            <IonIcon slot="start" icon={moon} />
+            <IonToggle
+              slot="end"
+              name="darkMode"
+              onIonChange={toggleDarkModeHandler}
+            />
+          </IonItem>
             <IonItem color="none" lines="none">
               <IonSelect
                 placeholder="Select a Currency"
