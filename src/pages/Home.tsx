@@ -114,11 +114,6 @@ const Home: React.FC = () => {
     }
   }
 
-
-  
-
-
-
   return (
     <IonPage>
       <IonHeader>
@@ -127,7 +122,7 @@ const Home: React.FC = () => {
             <IonIcon icon={menu} className="toolbarIcon"></IonIcon>
           </IonButton>
           <div className="toolbarSectionLine" slot="start"></div>
-          <IonTitle className="toolbarText">Home</IonTitle>
+          <IonTitle className="toolbarText">Bitdated</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent>
@@ -140,18 +135,19 @@ const Home: React.FC = () => {
               ></IonImg>
               <IonText className="currencyName">{currency}</IonText>
             </IonItem>
-            <IonItem lines="none">
-            <IonIcon slot="start" icon={moon} />
+            <IonItem lines="none" color="none">
+            <IonIcon slot="end" icon={moon} />
             <IonToggle
               slot="end"
               name="darkMode"
               onIonChange={toggleDarkModeHandler}
             />
-          </IonItem>
-            <IonItem color="none" lines="none">
+            </IonItem>
+            <IonItem color="none" lines="none" className="noRipple">
               <IonSelect
                 placeholder="Select a Currency"
-                className="currencySelector" value={currency} onIonChange={e => slcChange(e.detail.value)}>
+                className="currencySelector" 
+                value={currency} onIonChange={e => slcChange(e.detail.value)}>
                 <IonSelectOption value="Bitcoin">Bitcoin</IonSelectOption>
                 <IonSelectOption value="Etherium">Etherium</IonSelectOption>
               </IonSelect>
@@ -198,7 +194,7 @@ const Home: React.FC = () => {
         </div>
         <div className="valuesContained">
         <div className="revenueContainer">
-          <IonText className="revenueText"> USD</IonText>
+          <IonText className="revenueText">USD</IonText>
         </div>
         <div className="priceContainer">
             <IonText className="revenueText">Currency</IonText>
@@ -213,7 +209,6 @@ const Home: React.FC = () => {
           <IonItem color="none" lines="none">
             <IonInput name="num2" type="number" placeholder="Currency" className="conversionInput" value={wo} onIonChange={e => setWo(parseFloat(e.detail.value!))} onIonFocus={clear2}></IonInput>
           </IonItem>
-
         </div>
       </IonContent>
     </IonPage>

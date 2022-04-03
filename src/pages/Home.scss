@@ -1,6 +1,5 @@
-
 .mainToolBar{
-  --background: #231123;
+  --background: var(--ion-color-primary);
 }
 
 .uwu{
@@ -47,13 +46,12 @@
 }
 
 .currencySelector {
-  border: 2px solid #231123;
+  border: 2px solid var(--ion-color-dark);
   border-radius: 8px;
   padding: 8px !important;
   font-family: 'Century Gothic' !important;
   font-size: 14px !important;
-  --placeholder-color: #231123 !important;
-  background: linear-gradient(0deg, rgba(224,220,220,1) 2%, rgba(228,226,226,1) 25%, rgba(236,236,236,1) 48%) !important  ;
+  --placeholder-color: #152ea08e !important;
 }
 
 .list-md{
@@ -116,7 +114,6 @@ ion-img.logoBTC+ion-text {
   font-family: 'Century Gothic' !important;
   font-size:18px;
   font-style: italic;
-  color: #231123;
 }
 
 .ion-text-center>ion-text {
@@ -132,10 +129,9 @@ ion-img.logoBTC+ion-text {
 
 .conversionInput {
   width: 35vw;
-  border: 2px solid #231123;
+  border: 2px solid var(--ion-color-dark);
   border-radius: 8px;
   padding: 1px 8px 1px 8px !important;
-  --placeholder-color: #3d107b !important;
   font-style: italic;
 }
 
@@ -147,15 +143,18 @@ ion-img.logoBTC+ion-text {
   font-family: 'Century Gothic' !important;
   font-size:22px;
   font-weight: 600;
-  color: #231123;
 }
 
 
 .homeSectionLine {
   height: 2px;
   width: 70%;
-  background-color: #3d107b;
+  background-color: #152fa0;
   margin: 0 15% 0 15%;
+}
+
+.noRipple {
+  --ripple-color: transparent;
 }
 
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
