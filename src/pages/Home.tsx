@@ -24,6 +24,7 @@ import "./Home.scss";
 import * as HighCharts from 'highcharts';
 import { clear } from "console";
 import { moon } from 'ionicons/icons';
+import { sunny } from "ionicons/icons";
 import ExploreContainer from "../components/ExploreContainer";
 
 const Home: React.FC = () => {
@@ -31,7 +32,14 @@ const Home: React.FC = () => {
   let graphAPI = "https://api.blockchain.info/charts/market-price?timespan=1weeks&sampled=true&metadata=false&cors=true&format=json"
 
 
-  const toggleDarkModeHandler = () => document.body.classList.toggle("dark");
+  const toggleDarkModeHandler = () => {
+    document.body.classList.toggle("dark");
+    if (document.body.classList.contains("dark")) {
+      setDarkIcon(`${sunny}`);
+    } else {
+      setDarkIcon(`${moon}`);
+    }
+  }
 
   
   function myMethod() {
@@ -73,6 +81,7 @@ const Home: React.FC = () => {
   const [volume, setVolume] = useState(myMethod);
   const [currency, setCurrency] = useState<string>('Bitcoin');
   const [logo, setLogo] = useState<string>("assets/Images/logoBTC.png");
+  const [darkIcon, setDarkIcon] = useState(`${moon}`);
   
   let a= JSON.stringify(price);
   let b= parseFloat(a); 
@@ -105,8 +114,8 @@ const Home: React.FC = () => {
         api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
         setLogo("assets/Images/logoBTC.png")
         myMethod()
-    } else if (e=='Etherium'){
-      setCurrency('Etherium');
+    } else if (e=='Ethereum'){
+      setCurrency('Ethereum');
       api = "https://api.blockchain.com/v3/exchange/tickers/ETH-USD";
       setLogo("assets/Images/logoETH.png")
       myMethod()
@@ -136,7 +145,7 @@ const Home: React.FC = () => {
               <IonText className="currencyName">{currency}</IonText>
             </IonItem>
             <IonItem lines="none" color="none">
-            <IonIcon slot="end" icon={moon} />
+            <IonIcon slot="end" icon={darkIcon} />
             <IonToggle
               slot="end"
               name="darkMode"
@@ -147,9 +156,10 @@ const Home: React.FC = () => {
               <IonSelect
                 placeholder="Select a Currency"
                 className="currencySelector" 
-                value={currency} onIonChange={e => slcChange(e.detail.value)}>
+                value={currency} 
+                onIonChange={e => slcChange(e.detail.value)}>
                 <IonSelectOption value="Bitcoin">Bitcoin</IonSelectOption>
-                <IonSelectOption value="Etherium">Etherium</IonSelectOption>
+                <IonSelectOption value="Ethereum">Ethereum</IonSelectOption>
               </IonSelect>
             </IonItem>
           </div>

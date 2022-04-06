@@ -51,7 +51,18 @@
   padding: 8px !important;
   font-family: 'Century Gothic' !important;
   font-size: 14px !important;
-  --placeholder-color: #152ea08e !important;
+  --placeholder-color: black !important;
+}
+
+.currencySelector::part(icon) {
+  mask-size: cover;
+  mask-image: url('../assets/icons/chevron-down.svg');
+  background-color: var(--ion-color-dark) !important;
+}
+
+.select-expanded {
+  border: 2px solid var(--ion-color-primary);
+  transition: ease .2s 
 }
 
 .list-md{
@@ -133,6 +144,11 @@ ion-img.logoBTC+ion-text {
   border-radius: 8px;
   padding: 1px 8px 1px 8px !important;
   font-style: italic;
+}
+
+.has-focus {
+  border: 2px solid var(--ion-color-primary);
+  transition: ease .2s;
 }
 
 .conversionIcon {
