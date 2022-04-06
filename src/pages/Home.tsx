@@ -18,10 +18,11 @@ import {
   IonToggle,
 } from "@ionic/react";
 import React, { useState,  } from "react";
-import { menu } from "ionicons/icons";
+import { menu, options } from "ionicons/icons";
 import { swapHorizontal } from "ionicons/icons";
 import "./Home.scss";
 import * as HighCharts from 'highcharts';
+import HighchartsReact from "highcharts-react-official";
 import { clear } from "console";
 import { moon } from 'ionicons/icons';
 import { sunny } from "ionicons/icons";
@@ -40,6 +41,7 @@ const Home: React.FC = () => {
       setDarkIcon(`${moon}`);
     }
   }
+
 
   
   function myMethod() {
@@ -123,6 +125,44 @@ const Home: React.FC = () => {
     }
   }
 
+  const options ={
+  
+    title:{
+      text:'Market Price (USD)'
+    },
+
+    xAxis:{
+        type: 'datetime',
+        accessibility: {
+          rangeDescription: "Range: 2021 to 2022"
+        },
+        labels: {
+          format: '{value:%d %b}'
+        },
+        plotOptions: {
+          series: {
+            pointStart: 2022,
+            }
+          }
+    },
+    yAxis:{
+      title:{
+        text:''
+      },
+      categories: 'USD',
+      labels:{
+        format: '${value}'
+      }
+    },
+
+    series: [{
+      name:'Bitcoin',
+      data: [{"x":1648512000*1000,"y":47115.93},{"x":1648598400*1000,"y":47448.01},{"x":1648684800*1000,"y":47064.16},{"x":1648771200*1000,"y":45539.22},{"x":1648857600*1000,"y":46282.56},{"x":1648944000*1000,"y":45825.36},{"x":1649030400*1000,"y":46425.52},{"x":1649116800*1000,"y":46611.26}],
+      color: '#F7931A'
+      }
+   ],  
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -197,6 +237,11 @@ const Home: React.FC = () => {
             <br />
             <IonText className="revenueText">${volume}</IonText>
           </div>
+        </div>
+        <div>
+          <HighchartsReact highcharts={HighCharts} options={options}>
+
+          </HighchartsReact>
         </div>
         <div className="homeSectionLine"></div>
         <div className="ion-text-center ion-margin-top">
