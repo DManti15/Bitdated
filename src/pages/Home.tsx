@@ -30,15 +30,66 @@ import ExploreContainer from "../components/ExploreContainer";
 
 const Home: React.FC = () => {
   let api = "https://api.blockchain.com/v3/exchange/tickers/BTC-USD";
-  let graphAPI = "https://api.blockchain.info/charts/market-price?timespan=1weeks&sampled=true&metadata=false&cors=true&format=json"
-
+  let graphAPI = "https://api.blockchain.info/charts/market-price?timespan=1weeks&sampled=true&metadata=false&cors=true&format=json";
 
   const toggleDarkModeHandler = () => {
     document.body.classList.toggle("dark");
     if (document.body.classList.contains("dark")) {
       setDarkIcon(`${sunny}`);
+      setOptions({
+        title:{
+          style:{
+            color: '#f4f5f8'
+          }
+        },
+        legend:{
+          itemStyle:{
+            color: '#f4f5f8'
+          }
+        },
+        xAxis:{
+          labels:{
+            style:{
+              color: '#f4f5f8'
+            }
+          }
+        },
+        yAxis:{
+          labels:{
+            style:{
+              color: '#f4f5f8'
+            }
+          }
+        }
+      });
     } else {
       setDarkIcon(`${moon}`);
+      setOptions({
+        title:{
+          style:{
+            color: '#19191b'
+          }
+        },
+        legend:{
+          itemStyle:{
+            color: '#19191b'
+          }
+        },
+        xAxis:{
+          labels:{
+            style:{
+              color: '#19191b'
+            }
+          }
+        },
+        yAxis:{
+          labels:{
+            style:{
+              color: '#19191b'
+            }
+          }
+        }
+      });
     }
   }
 
@@ -50,11 +101,28 @@ const Home: React.FC = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setPrice(data["last_trade_price"]);
         setPrice24h(data["price_24h"]);
         setSymbol(data["symbol"]);
         setVolume(data["volume_24h"]);
+      });
+      fetch(graphAPI)
+      .then((response) => {
+        return response.json();
+      })
+      .then((dataG) => {
+        console.log(dataG.values);
+        const keys = Object.keys(dataG.values)
+        console.log(keys);
+        let myDataArr: { x: number; y: any; }[] = [];
+        keys.forEach(key => {
+          let data1 = dataG.values[key].x*1000;
+          let data2 = dataG.values[key].y;
+          let myData = {"x": data1, "y": data2};
+          myDataArr.push(myData);
+          console.log(myData);
+        });
+        setOptions({series: [{data: myDataArr}] });
       });
   }
 
@@ -84,6 +152,69 @@ const Home: React.FC = () => {
   const [currency, setCurrency] = useState<string>('Bitcoin');
   const [logo, setLogo] = useState<string>("assets/Images/logoBTC.png");
   const [darkIcon, setDarkIcon] = useState(`${moon}`);
+  let options: any;
+  let setOptions: any;
+  [options, setOptions] = useState({
+
+    chart:{
+      backgroundColor: 'transparent',
+      height: '300'
+    },
+  
+    title:{
+      text:'Market Price (USD)',
+      style: {
+        color: '#2d2d30'
+      }
+    },
+
+    legend:{
+      itemStyle:{
+        color: '#2d2d30'
+      }
+    },
+
+    credits:{
+      enabled: false
+    },
+
+    xAxis:{
+        type: 'datetime',
+        accessibility: {
+          rangeDescription: "Range: 2021 to 2022"
+        },
+        labels: {
+          format: '{value:%d %b}',
+          style: {
+            color: '#2d2d30'
+          },
+        },
+        plotOptions: {
+          series: {
+            pointStart: 2022,
+            }
+          }
+    },
+    yAxis:{
+      title:{
+        text:''
+      },
+      categories: 'USD',
+      labels:{
+        format: '${value}',
+        style: {
+          color: '#2d2d30'
+        }
+      }
+    },
+
+    series: [{
+      name:'Bitcoin',
+      data: [],
+      color: '#F7931A'
+      }
+   ],  
+  });
   
   let a= JSON.stringify(price);
   let b= parseFloat(a); 
@@ -124,44 +255,6 @@ const Home: React.FC = () => {
 
     }
   }
-
-  const options ={
-  
-    title:{
-      text:'Market Price (USD)'
-    },
-
-    xAxis:{
-        type: 'datetime',
-        accessibility: {
-          rangeDescription: "Range: 2021 to 2022"
-        },
-        labels: {
-          format: '{value:%d %b}'
-        },
-        plotOptions: {
-          series: {
-            pointStart: 2022,
-            }
-          }
-    },
-    yAxis:{
-      title:{
-        text:''
-      },
-      categories: 'USD',
-      labels:{
-        format: '${value}'
-      }
-    },
-
-    series: [{
-      name:'Bitcoin',
-      data: [{"x":1648512000*1000,"y":47115.93},{"x":1648598400*1000,"y":47448.01},{"x":1648684800*1000,"y":47064.16},{"x":1648771200*1000,"y":45539.22},{"x":1648857600*1000,"y":46282.56},{"x":1648944000*1000,"y":45825.36},{"x":1649030400*1000,"y":46425.52},{"x":1649116800*1000,"y":46611.26}],
-      color: '#F7931A'
-      }
-   ],  
-  };
 
   return (
     <IonPage>
@@ -207,8 +300,9 @@ const Home: React.FC = () => {
         <div className="homeSectionLine"></div>
 
         
-        <div id='container' className="display: block;"	></div>
-
+        <div id='container' style={{display: "block", padding: "0 15px 0 15px"}}>
+          <HighchartsReact highcharts={HighCharts} options={options}/>
+        </div>
         
         <div className="homeSectionLine"></div>
         <div className="ion-text-center ion-margin-top">
@@ -237,11 +331,6 @@ const Home: React.FC = () => {
             <br />
             <IonText className="revenueText">${volume}</IonText>
           </div>
-        </div>
-        <div>
-          <HighchartsReact highcharts={HighCharts} options={options}>
-
-          </HighchartsReact>
         </div>
         <div className="homeSectionLine"></div>
         <div className="ion-text-center ion-margin-top">
