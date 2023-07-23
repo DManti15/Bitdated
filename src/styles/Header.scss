@@ -1,0 +1,48 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.currency-name {
+  font-size: $textM;
+  font-weight: 600;
+}
+
+.currency-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $marginS;
+}
+
+.currency-selector {
+  display: flex;
+  justify-content: center;
+  border: 2px solid var(--ion-color-dark);
+  border-radius: 8px;
+  padding: $paddingBtn;
+  min-height: 0;
+  font-size: $textS;
+  --placeholder-color: black;
+}
+
+::part(text) {
+  text-overflow: clip;
+}
+
+.select-expanded {
+  border: 2px solid var(--ion-color-primary);
+  transition: ease 0.2s;
+}
+
+.list-bg {
+  background: transparent;
+  margin-top: 1vh;
+}
+
+.logo-btc {
+  width: 4rem;
+  min-width: 4rem;
+  padding-right: 8px;
+  @include responsive($desktopS) {
+    width: 6rem;
+  }
+}
