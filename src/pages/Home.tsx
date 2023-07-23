@@ -16,7 +16,7 @@ import {
   useIonViewDidEnter,
   IonLabel,
   IonToggle,
-} from "@ionic/react";
+} from '@ionic/react';
 import React, { useState,  } from "react";
 import { menu, options } from "ionicons/icons";
 import { swapHorizontal } from "ionicons/icons";
@@ -124,6 +124,7 @@ const Home: React.FC = () => {
         });
         setOptions({series: [{data: myDataArr}] });
       });
+    return null;
   }
 
   useIonViewDidEnter( () => {;
