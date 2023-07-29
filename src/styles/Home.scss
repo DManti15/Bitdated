@@ -1,0 +1,17 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.home-section-line {
+  height: 2px;
+  width: 80%;
+  background-color: #152fa0;
+  margin: 0 10% 0 10%;
+}
+
+.no-ripple {
+  --ripple-color: transparent;
+}
+
+.ion-text-center > ion-text {
+  font-size: 22px;
+}

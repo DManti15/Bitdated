@@ -1,8 +1,6 @@
-import { IonPage, IonContent} from "@ionic/react";
-import React, {useEffect, useState} from "react";
-import "./Loading.scss";
-import Home from './Home';
-import { url } from "inspector";
+import { IonContent, IonPage } from "@ionic/react";
+import React, { useEffect } from "react";
+import "../styles/Loading.scss";
 
 const Loading: React.FC = () => {
 
