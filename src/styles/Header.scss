@@ -1,19 +1,19 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-.currencyName {
+.currency-name {
   font-size: $textM;
   font-weight: 600;
 }
 
-.currencyContainer {
+.currency-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: $marginS;
 }
 
-.currencySelector {
+.currency-selector {
   display: flex;
   justify-content: center;
   border: 2px solid var(--ion-color-dark);
@@ -33,12 +33,12 @@
   transition: ease 0.2s;
 }
 
-.listBg {
+.list-bg {
   background: transparent;
   margin-top: 1vh;
 }
 
-.logoBTC {
+.logo-btc {
   width: 4rem;
   min-width: 4rem;
   padding-right: 8px;

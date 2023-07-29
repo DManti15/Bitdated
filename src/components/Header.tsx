@@ -27,11 +27,11 @@ const Header: React.FC<HeaderProps> = ({ currency, logo, slcChange, setOptions }
 
   return (
     <>
-      <IonList className="listBg">
-        <div className="currencyContainer">
+      <IonList className="list-bg">
+        <div className="currency-container">
           <IonItem color="none" lines="none">
-            <IonImg className="logoBTC" src={logo}></IonImg>
-            <IonText className="currencyName">{currency}</IonText>
+            <IonImg className="logo-btc" src={logo}></IonImg>
+            <IonText className="currency-name">{currency}</IonText>
           </IonItem>
           <IonItem lines="none" color="none">
             <IonIcon slot="end" icon={darkIcon} />
@@ -41,10 +41,10 @@ const Header: React.FC<HeaderProps> = ({ currency, logo, slcChange, setOptions }
               onIonChange={toggleDarkModeHandler}
             />
           </IonItem>
-          <IonItem color="none" lines="none" className="noRipple">
+          <IonItem color="none" lines="none" className="no-ripple">
             <IonSelect
               placeholder="Select a Currency"
-              className="currencySelector"
+              className="currency-selector"
               toggleIcon={chevronDownOutline}
               value={currency}
               onIonChange={(e) => slcChange(e.detail.value)}>

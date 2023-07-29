@@ -12,30 +12,30 @@ const CurrencyInfo: React.FC<CurrencyInfoProps> = ({ symbol, price, price24h, vo
   return (
     <>
       <div className="ion-text-center ion-margin-top">
-        <IonText className="convertTitle">Prices</IonText>
+        <IonText className="info-title">Prices</IonText>
       </div>
-      <div className="valuesContainer">
-        <div className="revenueContainer">
+      <div className="values-container">
+        <div className="revenue-container">
           <IonText>Currency</IonText>
           <br />
-          <IonText className="revenueText"> {symbol}</IonText>
+          <IonText className="revenue-text"> {symbol}</IonText>
         </div>
-        <div className="priceContainer">
+        <div className="price-container">
           <IonText>Price (24h)</IonText>
           <br />
-          <IonText className="revenueText">${price24h}</IonText>
+          <IonText className="revenue-text">${price24h}</IonText>
         </div>
       </div>
-      <div className="valuesContainer">
-        <div className="revenueContainer">
+      <div className="values-container">
+        <div className="revenue-container">
           <IonText>Miners Revenue</IonText>
           <br />
-          <IonText className="revenueText"> ${price}</IonText>
+          <IonText className="revenue-text"> ${price}</IonText>
         </div>
-        <div className="priceContainer">
+        <div className="price-container">
           <IonText>Volume 24h</IonText>
           <br />
-          <IonText className="revenueText">${volume}</IonText>
+          <IonText className="revenue-text">${volume}</IonText>
         </div>
       </div>
     </>

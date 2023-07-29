@@ -40,11 +40,11 @@ const Home: React.FC = () => {
       </IonHeader>
       <IonContent>
         <Header currency={currency} logo={logo} slcChange={slcChange} setOptions={setOptions}/>
-        <div className="homeSectionLine"></div>
+        <div className="home-section-line"></div>
         <Chart options={options}/>
-        <div className="homeSectionLine"></div>
+        <div className="home-section-line"></div>
         <CurrencyInfo symbol={symbol} price={price} price24h={price24h} volume={volume}/>
-        <div className="homeSectionLine"></div>
+        <div className="home-section-line"></div>
         <Converter price={price} />
       </IonContent>
     </IonPage>

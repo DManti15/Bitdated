@@ -5,12 +5,12 @@ import '../styles/Navbar.scss';
 const Navbar: React.FC = () => {
   return (
     <>
-      <IonToolbar className="mainToolBar">
-        <IonButton className="toolbarButton" slot="start">
-          <IonIcon icon={menu} className="toolbarIcon"></IonIcon>
+      <IonToolbar className="main-toolbar">
+        <IonButton className="toolbar-button" slot="start">
+          <IonIcon icon={menu} className="toolbar-icon"></IonIcon>
         </IonButton>
-        <div className="toolbarSectionLine" slot="start"></div>
-        <IonTitle className="toolbarText">Bitdated</IonTitle>
+        <div className="toolbar-section-line" slot="start"></div>
+        <IonTitle className="toolbar-text">Bitdated</IonTitle>
       </IonToolbar>
     </>
   );

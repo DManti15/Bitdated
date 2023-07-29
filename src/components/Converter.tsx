@@ -33,23 +33,23 @@ const Converter: React.FC<ConverterProps> = ({ price }) => {
   return (
     <>
       <div className="ion-text-center ion-margin-top">
-        <IonText className="convertTitle">Convert</IonText>
+        <IonText className="convert-title">Convert</IonText>
       </div>
-      <div className="valuesContained">
-        <div className="revenueContainer">
-          <IonText className="revenueText">USD</IonText>
+      <div className="values-contained">
+        <div className="revenue-container">
+          <IonText className="revenue-text">USD</IonText>
         </div>
-        <div className="priceContainer">
-          <IonText className="revenueText">Currency</IonText>
+        <div className="price-container">
+          <IonText className="revenue-text">Currency</IonText>
         </div>
       </div>
-      <div className="inputContainer">
+      <div className="input-container">
         <IonItem color="none" lines="none">
           <IonInput
             name="num1"
             type="number"
             placeholder="USD"
-            className="conversionInput"
+            className="conversion-input"
             value={wa}
             onIonChange={(e) => setWa(parseFloat(e.detail.value!))}
             onIonFocus={clear}>
@@ -58,7 +58,7 @@ const Converter: React.FC<ConverterProps> = ({ price }) => {
         </IonItem>
         <IonIcon
           icon={swapHorizontal}
-          className="conversionIcon"
+          className="conversion-icon"
           onClick={converter}></IonIcon>
 
         <IonItem color="none" lines="none">
@@ -66,7 +66,7 @@ const Converter: React.FC<ConverterProps> = ({ price }) => {
             name="num2"
             type="number"
             placeholder="Currency"
-            className="conversionInput"
+            className="conversion-input"
             value={wo}
             onIonChange={(e) => setWo(parseFloat(e.detail.value!))}
             onIonFocus={clear2}></IonInput>
