@@ -1,0 +1,32 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.mainToolBar {
+  --background: var(--ion-color-primary);
+
+  .toolbarButton {
+    --padding-start: 5px;
+    --padding-end: 5px;
+    --color: none;
+    --background: none;
+    --background-activated: none;
+    --box-shadow: none;
+
+    .toolbarIcon {
+      font-size: 48px;
+      color: #fff;
+    }
+  }
+
+  .toolbarSectionLine {
+    width: 1px;
+    height: 33px;
+    background: #aaa;
+  }
+
+  .toolbarText {
+    padding-left: 8px;
+    color: #fff;
+    font-size: 24px;
+  }
+}

@@ -1,16 +1,15 @@
 import HighCharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import '../styles/Chart.scss';
 
 interface ChartProps {
-  options: {}
+  options: {};
 }
 
 const Chart: React.FC<ChartProps> = ({ options }) => {
   return (
     <>
-      <div
-        id="container"
-        style={{ display: "block", padding: "0 15px 0 15px" }}>
+      <div className="chart-container">
         <HighchartsReact highcharts={HighCharts} options={options} />
       </div>
     </>

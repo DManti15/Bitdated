@@ -1,4 +1,5 @@
 import { IonText } from "@ionic/react";
+import '../styles/CurrencyInfo.scss'
 
 interface CurrencyInfoProps {
   symbol: string | undefined

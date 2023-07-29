@@ -1,6 +1,6 @@
 import { IonContent, IonPage } from "@ionic/react";
 import React, { useEffect } from "react";
-import "./Loading.scss";
+import "../styles/Loading.scss";
 
 const Loading: React.FC = () => {
 

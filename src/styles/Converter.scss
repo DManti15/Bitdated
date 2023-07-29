@@ -1,0 +1,43 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.valuesContained {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px 0 15px;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 6px;
+  margin-bottom: 2rem;
+
+  ion-input.conversionInput[type="number"] {
+    width: 100%;
+    border: 2px solid var(--ion-color-dark);
+    border-radius: 8px;
+    --padding-top: .5rem;
+    --padding-end: .25rem;
+    --padding-start: .25rem;
+    --padding-bottom: .5rem;
+    font-style: italic;
+  }
+}
+
+.has-focus {
+  border: 2px solid var(--ion-color-primary);
+  transition: ease 0.2s;
+}
+
+.conversionIcon {
+  font-size: 2.5rem;
+}
+
+.convertTitle {
+  font-size: 22px;
+  font-weight: 600;
+}

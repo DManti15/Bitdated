@@ -1,7 +1,8 @@
 import { IonIcon, IonImg, IonItem, IonList, IonSelect, IonSelectOption, IonText, IonToggle } from "@ionic/react";
-import { moon, sunny } from "ionicons/icons";
+import { moon, sunny, chevronDownOutline } from "ionicons/icons";
 import { useState } from "react";
 import { DARK_OPTIONS, LIGHT_OPTIONS } from "../constants/chartOptions";
+import '../styles/Header.scss';
 
 interface HeaderProps {
   currency: string
@@ -44,6 +45,7 @@ const Header: React.FC<HeaderProps> = ({ currency, logo, slcChange, setOptions }
             <IonSelect
               placeholder="Select a Currency"
               className="currencySelector"
+              toggleIcon={chevronDownOutline}
               value={currency}
               onIonChange={(e) => slcChange(e.detail.value)}>
               <IonSelectOption value="Bitcoin">Bitcoin</IonSelectOption>

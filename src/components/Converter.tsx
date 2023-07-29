@@ -1,6 +1,7 @@
 import { IonIcon, IonInput, IonItem, IonText } from "@ionic/react";
 import { swapHorizontal } from "ionicons/icons";
 import { useState } from "react";
+import '../styles/Converter.scss'
 
 interface ConverterProps {
   price: number | undefined

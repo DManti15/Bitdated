@@ -1,5 +1,6 @@
 import { IonButton, IonIcon, IonTitle, IonToolbar } from "@ionic/react";
 import { menu } from "ionicons/icons";
+import '../styles/Navbar.scss';
 
 const Navbar: React.FC = () => {
   return (

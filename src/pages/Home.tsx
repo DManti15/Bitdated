@@ -11,7 +11,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { useChartData } from "../hooks/useChartData";
 import { useCurrencyData } from "../hooks/useCurrencyData";
-import "./Home.scss";
+import "../styles/Home.scss";
 
 const Home: React.FC = () => {
   const { options, setOptions, getChartData } = useChartData();

@@ -1,0 +1,26 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.valuesContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 20px;
+}
+
+.revenueContainer {
+  text-align: start;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.priceContainer {
+  text-align: end;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.revenueText {
+  font-size: 1.15rem;
+  font-style: italic;
+}
