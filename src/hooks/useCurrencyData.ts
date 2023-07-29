@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { CURRENCY_API } from "../constants/apis";
 
 export function useCurrencyData() {
-  const [price, setPrice] = useState();
-  const [price24h, setPrice24h] = useState();
-  const [symbol, setSymbol] = useState();
-  const [volume, setVolume] = useState();
+  const [price, setPrice] = useState(0);
+  const [price24h, setPrice24h] = useState(0);
+  const [symbol, setSymbol] = useState('');
+  const [volume, setVolume] = useState(0);
   const [currency, setCurrency] = useState<string>("Bitcoin");
   const [logo, setLogo] = useState<string>("assets/Images/logoBTC.png");
 

@@ -4,30 +4,20 @@ import { useState } from "react";
 import '../styles/Converter.scss'
 
 interface ConverterProps {
-  price: number | undefined
+  price: number
 }
 
 const Converter: React.FC<ConverterProps> = ({ price }) => {
-  let [wa, setWa] = useState<number>(0);
-  let [wo, setWo] = useState<number>(0);
-
-  let a = JSON.stringify(price);
-  let b = parseFloat(a);
+  const [currencyValue, setCurrencyValue] = useState(0);
+  const [cryptoValue, setCryptoValue] = useState(0);
 
   function converter() {
-    if (wo !== 0) {
-      setWa(wo * b);
+    if (currencyValue !== 0) {
+      setCryptoValue(currencyValue / price);
     }
-    if (wa !== 0) {
-      setWo(wa / b);
+    if (cryptoValue !== 0) {
+      setCurrencyValue(cryptoValue * price);
     }
-  }
-
-  function clear() {
-    setWo(0);
-  }
-  function clear2() {
-    setWa(0);
   }
 
   return (
@@ -50,9 +40,9 @@ const Converter: React.FC<ConverterProps> = ({ price }) => {
             type="number"
             placeholder="USD"
             className="conversion-input"
-            value={wa}
-            onIonChange={(e) => setWa(parseFloat(e.detail.value!))}
-            onIonFocus={clear}>
+            value={currencyValue}
+            onIonInput={e => setCurrencyValue(parseFloat(e.detail.value!))}
+            onIonFocus={() => setCryptoValue(0)}>
             {" "}
           </IonInput>
         </IonItem>
@@ -67,9 +57,9 @@ const Converter: React.FC<ConverterProps> = ({ price }) => {
             type="number"
             placeholder="Currency"
             className="conversion-input"
-            value={wo}
-            onIonChange={(e) => setWo(parseFloat(e.detail.value!))}
-            onIonFocus={clear2}></IonInput>
+            value={cryptoValue}
+            onIonInput={e => setCryptoValue(parseFloat(e.detail.value!))}
+            onIonFocus={() => setCurrencyValue(0)}></IonInput>
         </IonItem>
       </div>
     </>
