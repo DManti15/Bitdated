@@ -4,16 +4,37 @@ import {
   IonHeader,
   IonIcon,
   IonItem,
+  IonLabel,
   IonList,
   IonMenu,
   IonMenuToggle,
   IonTitle,
+  IonToggle,
   IonToolbar,
 } from "@ionic/react";
-import { arrowBack } from "ionicons/icons";
-import '../styles/Menu.scss';
+import { arrowBack, moon, sunny } from "ionicons/icons";
+import { useState } from "react";
+import { DARK_OPTIONS, LIGHT_OPTIONS } from "../constants/chartOptions";
+import "../styles/Menu.scss";
 
-const Menu: React.FC = () => {
+interface MenuProps {
+  setOptions: React.Dispatch<React.SetStateAction<{}>>;
+}
+
+const Menu: React.FC<MenuProps> = ({ setOptions }) => {
+  const [darkIcon, setDarkIcon] = useState(`${sunny}`);
+
+  const toggleDarkModeHandler = () => {
+    document.body.classList.toggle("dark");
+    if (document.body.classList.contains("dark")) {
+      setDarkIcon(`${moon}`);
+      setOptions(DARK_OPTIONS);
+    } else {
+      setDarkIcon(`${sunny}`);
+      setOptions(LIGHT_OPTIONS);
+    }
+  };
+
   return (
     <>
       <IonMenu contentId="main-content">
@@ -22,15 +43,21 @@ const Menu: React.FC = () => {
             <IonTitle className="menu-toolbar-title">Bitdated</IonTitle>
             <IonMenuToggle slot="end">
               <IonButton className="back-btn">
-                <IonIcon icon={arrowBack} className="back-icon"></IonIcon>
+                <IonIcon icon={arrowBack} className="back-icon" />
               </IonButton>
             </IonMenuToggle>
           </IonToolbar>
         </IonHeader>
         <IonContent>
-          <IonList>
-            <IonItem>
-              
+          <IonList className="menu-list">
+            <IonItem lines="none" color="none">
+              <IonLabel className="theme-label">Change theme</IonLabel>
+              <IonIcon slot="end" icon={darkIcon} />
+              <IonToggle
+                slot="end"
+                name="darkMode"
+                onIonChange={toggleDarkModeHandler}
+              />
             </IonItem>
           </IonList>
         </IonContent>

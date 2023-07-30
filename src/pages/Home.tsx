@@ -8,11 +8,11 @@ import Chart from "../components/Chart";
 import Converter from "../components/Converter";
 import CurrencyInfo from "../components/CurrencyInfo";
 import Header from "../components/Header";
+import Menu from "../components/Menu";
 import Navbar from "../components/Navbar";
 import { useChartData } from "../hooks/useChartData";
 import { useCurrencyData } from "../hooks/useCurrencyData";
 import "../styles/Home.scss";
-import Menu from "../components/Menu";
 
 const Home: React.FC = () => {
   const { options, setOptions, getChartData } = useChartData();
@@ -36,18 +36,13 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Menu />
+      <Menu setOptions={setOptions} />
       <IonPage id="main-content">
         <IonHeader>
           <Navbar />
         </IonHeader>
         <IonContent>
-          <Header
-            currency={currency}
-            logo={logo}
-            slcChange={slcChange}
-            setOptions={setOptions}
-          />
+          <Header currency={currency} logo={logo} slcChange={slcChange} />
           <div className="home-section-line"></div>
           <Chart options={options} />
           <div className="home-section-line"></div>

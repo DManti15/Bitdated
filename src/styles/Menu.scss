@@ -3,6 +3,7 @@
 
 .menu-toolbar {
   --background: var(--ion-color-primary);
+  --min-height: 72px;
 
   .menu-toolbar-title {
     color: $colorWhite;
@@ -22,5 +23,13 @@
       color: $colorWhite;
       font-size: $iconM;
     }
+  }
+}
+
+.menu-list {
+  background: transparent;
+
+  .theme-label {
+    font-size: $textM;
   }
 }
