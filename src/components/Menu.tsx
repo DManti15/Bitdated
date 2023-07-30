@@ -1,14 +1,17 @@
 import {
-  IonMenu,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
   IonButton,
-  IonIcon,
   IonContent,
+  IonHeader,
+  IonIcon,
+  IonItem,
+  IonList,
+  IonMenu,
   IonMenuToggle,
+  IonTitle,
+  IonToolbar,
 } from "@ionic/react";
 import { arrowBack } from "ionicons/icons";
+import '../styles/Menu.scss';
 
 const Menu: React.FC = () => {
   return (
@@ -16,7 +19,7 @@ const Menu: React.FC = () => {
       <IonMenu contentId="main-content">
         <IonHeader>
           <IonToolbar className="menu-toolbar">
-            <IonTitle className="toolbar-title">Bitdated</IonTitle>
+            <IonTitle className="menu-toolbar-title">Bitdated</IonTitle>
             <IonMenuToggle slot="end">
               <IonButton className="back-btn">
                 <IonIcon icon={arrowBack} className="back-icon"></IonIcon>
@@ -24,7 +27,13 @@ const Menu: React.FC = () => {
             </IonMenuToggle>
           </IonToolbar>
         </IonHeader>
-        <IonContent>Hello!</IonContent>
+        <IonContent>
+          <IonList>
+            <IonItem>
+              
+            </IonItem>
+          </IonList>
+        </IonContent>
       </IonMenu>
     </>
   );

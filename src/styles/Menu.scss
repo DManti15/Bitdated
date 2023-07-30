@@ -1,0 +1,26 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.menu-toolbar {
+  --background: var(--ion-color-primary);
+
+  .menu-toolbar-title {
+    color: $colorWhite;
+    font-size: $text2XL;
+    padding-inline: 5px;
+  }
+
+  .back-btn {
+    --padding-start: 5px;
+    --padding-end: 5px;
+    --color: none;
+    --background: none;
+    --background-activated: none;
+    --box-shadow: none;
+
+    .back-icon {
+      color: $colorWhite;
+      font-size: $iconM;
+    }
+  }
+}
