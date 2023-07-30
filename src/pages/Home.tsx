@@ -2,7 +2,7 @@ import {
   IonContent,
   IonHeader,
   IonPage,
-  useIonViewDidEnter
+  useIonViewDidEnter,
 } from "@ionic/react";
 import Chart from "../components/Chart";
 import Converter from "../components/Converter";
@@ -12,6 +12,7 @@ import Navbar from "../components/Navbar";
 import { useChartData } from "../hooks/useChartData";
 import { useCurrencyData } from "../hooks/useCurrencyData";
 import "../styles/Home.scss";
+import Menu from "../components/Menu";
 
 const Home: React.FC = () => {
   const { options, setOptions, getChartData } = useChartData();
@@ -32,22 +33,35 @@ const Home: React.FC = () => {
       getCurrencyData();
     }, 180000);
   });
-  
+
   return (
-    <IonPage>
-      <IonHeader>
-        <Navbar />
-      </IonHeader>
-      <IonContent>
-        <Header currency={currency} logo={logo} slcChange={slcChange} setOptions={setOptions}/>
-        <div className="home-section-line"></div>
-        <Chart options={options}/>
-        <div className="home-section-line"></div>
-        <CurrencyInfo symbol={symbol} price={price} price24h={price24h} volume={volume}/>
-        <div className="home-section-line"></div>
-        <Converter price={price} />
-      </IonContent>
-    </IonPage>
+    <>
+      <Menu />
+      <IonPage id="main-content">
+        <IonHeader>
+          <Navbar />
+        </IonHeader>
+        <IonContent>
+          <Header
+            currency={currency}
+            logo={logo}
+            slcChange={slcChange}
+            setOptions={setOptions}
+          />
+          <div className="home-section-line"></div>
+          <Chart options={options} />
+          <div className="home-section-line"></div>
+          <CurrencyInfo
+            symbol={symbol}
+            price={price}
+            price24h={price24h}
+            volume={volume}
+          />
+          <div className="home-section-line"></div>
+          <Converter price={price} />
+        </IonContent>
+      </IonPage>
+    </>
   );
 };
 
