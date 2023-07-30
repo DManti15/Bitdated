@@ -2,8 +2,8 @@
 @use "mixins" as *;
 
 .currency-name {
-  font-size: $textM;
-  font-weight: 600;
+  font-size: $textXL;
+  font-weight: bold;
 }
 
 .currency-container {
@@ -35,14 +35,14 @@
 
 .list-bg {
   background: transparent;
-  margin-top: 1vh;
+  margin-top: $marginS;
 }
 
 .logo-btc {
-  width: 4rem;
-  min-width: 4rem;
+  width: 3.75rem;
+  min-width: 3.75rem;
   padding-right: 8px;
   @include responsive($desktopS) {
-    width: 6rem;
+    width: 4.5rem;
   }
 }

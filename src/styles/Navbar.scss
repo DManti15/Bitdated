@@ -13,20 +13,20 @@
     --box-shadow: none;
 
     .toolbar-icon {
-      font-size: 48px;
-      color: #fff;
+      font-size: $iconL;
+      color: $colorWhite;
     }
   }
 
   .toolbar-section-line {
     width: 1px;
-    height: 33px;
-    background: #aaa;
+    height: 36px;
+    background: $colorGrey;
   }
 
   .toolbar-text {
     padding-left: 8px;
-    color: #fff;
-    font-size: 24px;
+    color: $colorWhite;
+    font-size: $text2XL;
   }
 }

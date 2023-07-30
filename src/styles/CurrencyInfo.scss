@@ -1,26 +1,28 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+.info-title {
+  font-size: $textL;
+  font-weight: bold;
+}
+
 .values-container {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  font-size: 20px;
+  font-size: $textM;
+  font-weight: bold;
 }
 
 .revenue-container {
   text-align: start;
-  font-size: 21px;
-  font-weight: 600;
 }
 
 .price-container {
   text-align: end;
-  font-size: 21px;
-  font-weight: 600;
 }
 
 .revenue-text {
-  font-size: 1.15rem;
   font-style: italic;
+  font-weight: normal;
 }

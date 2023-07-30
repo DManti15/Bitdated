@@ -1,12 +1,19 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+.convert-title {
+  font-size: $textL;
+  font-weight: bold;
+}
+
 .values-contained {
   display: flex;
   justify-content: space-between;
-  padding: 0 15px 0 15px;
-  font-size: 20px;
-  margin-top: 15px;
+  padding: 0 18px;
+  font-size: $textM;
+  font-weight: bold;
+  font-style: italic;
+  margin-top: $marginXS;
 }
 
 .input-container {
@@ -21,8 +28,8 @@
     border: 2px solid var(--ion-color-dark);
     border-radius: 8px;
     --padding-top: .5rem;
-    --padding-end: .25rem;
-    --padding-start: .25rem;
+    --padding-end: .5rem;
+    --padding-start: .5rem;
     --padding-bottom: .5rem;
     font-style: italic;
   }
@@ -34,10 +41,5 @@
 }
 
 .conversion-icon {
-  font-size: 2.5rem;
-}
-
-.convert-title {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: $iconM;
 }
