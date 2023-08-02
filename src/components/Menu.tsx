@@ -12,28 +12,17 @@ import {
   IonToggle,
   IonToolbar,
 } from "@ionic/react";
-import { arrowBack, moon, sunny } from "ionicons/icons";
-import { useState } from "react";
-import { DARK_OPTIONS, LIGHT_OPTIONS } from "../constants/chartOptions";
+import { arrowBack } from "ionicons/icons";
 import "../styles/Menu.scss";
 
 interface MenuProps {
-  setOptions: React.Dispatch<React.SetStateAction<{}>>;
+  themeHandler: () => void;
+  themeIcon: string;
+  isDark: boolean;
 }
 
-const Menu: React.FC<MenuProps> = ({ setOptions }) => {
-  const [darkIcon, setDarkIcon] = useState(`${sunny}`);
-
-  const toggleDarkModeHandler = () => {
-    document.body.classList.toggle("dark");
-    if (document.body.classList.contains("dark")) {
-      setDarkIcon(`${moon}`);
-      setOptions(DARK_OPTIONS);
-    } else {
-      setDarkIcon(`${sunny}`);
-      setOptions(LIGHT_OPTIONS);
-    }
-  };
+const Menu: React.FC<MenuProps> = ({ themeHandler, themeIcon, isDark }) => {
+  const checkedToggle = { checked: true };
 
   return (
     <>
@@ -52,12 +41,13 @@ const Menu: React.FC<MenuProps> = ({ setOptions }) => {
           <IonList className="menu-list">
             <IonItem lines="none" color="none">
               <IonLabel className="theme-label">Change theme</IonLabel>
-              <IonIcon slot="end" icon={darkIcon} />
+              <IonIcon slot="end" icon={themeIcon} />
               <IonToggle
                 slot="end"
                 name="darkMode"
                 aria-label="theme"
-                onIonChange={toggleDarkModeHandler}
+                onIonChange={themeHandler}
+                {...(isDark && checkedToggle)}
               />
             </IonItem>
           </IonList>
