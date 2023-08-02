@@ -56,6 +56,7 @@ const Menu: React.FC<MenuProps> = ({ setOptions }) => {
               <IonToggle
                 slot="end"
                 name="darkMode"
+                aria-label="theme"
                 onIonChange={toggleDarkModeHandler}
               />
             </IonItem>
