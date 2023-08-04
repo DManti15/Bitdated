@@ -5,5 +5,8 @@
   display: flex;
   justify-content: center;
   padding: .75rem;
-  height: 300px;
+  @include responsive($mobileM) {
+    height: 300px;
+  }
 }
+

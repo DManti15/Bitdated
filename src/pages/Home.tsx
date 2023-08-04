@@ -59,6 +59,8 @@ const Home: React.FC = () => {
       setThemeIcon(`${moon}`);
       setOptions(DARK_OPTIONS);
     }
+
+    
   });
 
   return (
