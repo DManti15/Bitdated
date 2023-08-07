@@ -1,17 +1,31 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+div.ion-text-center {
+  margin-top: .25rem;
+  @include responsive($desktopS) {
+    margin-top: var(--ion-margin, 16px);
+  }
+}
+
 .info-title {
-  font-size: $textL;
+  font-size: $textM;
   font-weight: bold;
+  @include responsive($desktopS) {
+    font-size: $textL;
+  }
 }
 
 .values-container {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  font-size: $textM;
+  padding: .5rem .75rem;
+  font-size: $textS;
   font-weight: bold;
+  @include responsive($desktopS) {
+    padding: 1rem;
+    font-size: $textM;
+  }
 }
 
 .revenue-container {

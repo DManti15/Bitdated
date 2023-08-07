@@ -11,7 +11,7 @@ interface CurrencyInfoProps {
 const CurrencyInfo: React.FC<CurrencyInfoProps> = ({ symbol, price, price24h, volume }) => {
   return (
     <>
-      <div className="ion-text-center ion-margin-top">
+      <div className="ion-text-center">
         <IonText className="info-title">Prices</IonText>
       </div>
       <div className="values-container">

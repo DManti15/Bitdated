@@ -4,9 +4,14 @@
 .chart-container {
   display: flex;
   justify-content: center;
-  padding: .75rem;
+  height: 250px;
+  padding: 0 .75rem;
   @include responsive($mobileM) {
-    height: 300px;
+    height: 275px;
+  }
+  @include responsive($desktopL) {
+    height: 365px;
+    padding: .75rem;
   }
 }
 

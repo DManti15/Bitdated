@@ -3,18 +3,37 @@
 
 .main-toolbar {
   --background: var(--ion-color-primary);
+  --min-height: 48px;
+  @include responsive($desktopS) {
+    --min-height: 56px;
+  }
 
   .toolbar-button {
-    --padding-start: 5px;
-    --padding-end: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+    --padding-start: 2px;
+    --padding-end: 2px;
+    --padding-top: 2px;
+    --padding-bottom: 2px;
     --color: none;
     --background: none;
     --background-activated: none;
     --box-shadow: none;
+    @include responsive($desktopS) {
+      margin-top: 4px;
+      margin-bottom: 4px;
+      --padding-start: 5px;
+      --padding-end: 5px;
+      --padding-top: 8px;
+      --padding-bottom: 8px;
+    }
 
     .toolbar-icon {
-      font-size: $iconL;
+      font-size: $iconM;
       color: $colorWhite;
+      @include responsive($desktopS) {
+        font-size: $iconL;
+      }
     }
   }
 
@@ -22,11 +41,17 @@
     width: 1px;
     height: 36px;
     background: $colorGrey;
+    @include responsive($desktopS) {
+      height: 48px;
+    }
   }
 
   .toolbar-text {
     padding-left: 8px;
     color: $colorWhite;
-    font-size: $text2XL;
+    font-size: $textXL;
+    @include responsive($desktopS) {
+      font-size: $text2XL;
+    }
   }
 }

@@ -2,15 +2,21 @@
 @use "mixins" as *;
 
 .currency-name {
-  font-size: $textXL;
+  font-size: $textM;
   font-weight: bold;
+  @include responsive($desktopS) {
+    font-size: $textXL;
+  }
 }
 
 .currency-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $marginS;
+  margin-bottom: .25rem;
+  @include responsive($desktopS) {
+    margin-bottom: $marginS;
+  }
 }
 
 .currency-selector {
@@ -18,10 +24,13 @@
   justify-content: center;
   border: 2px solid var(--ion-color-dark);
   border-radius: 8px;
-  padding: $paddingBtn;
+  padding: .5rem;
   min-height: 0;
   font-size: $textS;
   --placeholder-color: black;
+  @include responsive($desktopS) {
+    padding: $paddingBtn;
+  }
 }
 
 ::part(text) {
@@ -35,14 +44,18 @@
 
 .list-bg {
   background: transparent;
-  margin-top: $marginS;
+  margin-top: .25rem;
+  @include responsive($desktopS) {
+    margin-top: $marginS;
+  }
 }
 
 .logo-btc {
-  width: 3.75rem;
-  min-width: 3.75rem;
+  width: 3.25rem;
+  min-width: 3.25rem;
   padding-right: 8px;
   @include responsive($desktopS) {
     width: 4.5rem;
+    min-width: 4.5rem;
   }
 }

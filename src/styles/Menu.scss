@@ -3,21 +3,35 @@
 
 .menu-toolbar {
   --background: var(--ion-color-primary);
-  --min-height: 72px;
+  --min-height: 48px;
+  @include responsive($desktopS) {
+    --min-height: 72px;
+  }
 
   .menu-toolbar-title {
     color: $colorWhite;
-    font-size: $text2XL;
+    font-size: $textXL;
     padding-inline: 5px;
+    @include responsive($desktopS) {
+      font-size: $text2XL;
+    }
   }
 
   .back-btn {
-    --padding-start: 5px;
-    --padding-end: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+    --padding-start: 2px;
+    --padding-end: 2px;
+    --padding-top: 2px;
+    --padding-bottom: 2px;
     --color: none;
     --background: none;
     --background-activated: none;
     --box-shadow: none;
+    @include responsive($desktopS) {
+      --padding-start: 5px;
+      --padding-end: 5px;
+    }
 
     .back-icon {
       color: $colorWhite;
@@ -30,6 +44,9 @@
   background: transparent;
 
   .theme-label {
-    font-size: $textM;
+    font-size: $textS;
+    @include responsive($desktopS) {
+      font-size: $textM;
+    }
   }
 }
