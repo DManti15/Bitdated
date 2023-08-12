@@ -4,6 +4,9 @@
 .menu-toolbar {
   --background: var(--ion-color-primary);
   --min-height: 48px;
+  @include responsive($mobileS) {
+    --min-height: 60px;
+  }
   @include responsive($desktopS) {
     --min-height: 72px;
   }
@@ -12,7 +15,7 @@
     color: $colorWhite;
     font-size: $textXL;
     padding-inline: 5px;
-    @include responsive($desktopS) {
+    @include responsive($mobileS) {
       font-size: $text2XL;
     }
   }
@@ -28,7 +31,7 @@
     --background: none;
     --background-activated: none;
     --box-shadow: none;
-    @include responsive($desktopS) {
+    @include responsive($mobileS) {
       --padding-start: 5px;
       --padding-end: 5px;
     }
@@ -45,7 +48,7 @@
 
   .theme-label {
     font-size: $textS;
-    @include responsive($desktopS) {
+    @include responsive($mobileS) {
       font-size: $textM;
     }
   }

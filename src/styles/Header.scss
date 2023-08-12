@@ -4,6 +4,9 @@
 .currency-name {
   font-size: $textM;
   font-weight: bold;
+  @include responsive($mobileS) {
+    font-size: $textXL;
+  }
   @include responsive($desktopS) {
     font-size: $textXL;
   }
@@ -14,8 +17,20 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: .25rem;
+  padding: 0 .5rem;
+  @include responsive($mobileS) {
+    margin-bottom: $marginS;
+  }
+  @include responsive($mobileM) {
+    padding: 0 1rem;
+  }
   @include responsive($desktopS) {
     margin-bottom: $marginS;
+  }
+
+  ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
   }
 }
 
@@ -28,6 +43,10 @@
   min-height: 0;
   font-size: $textS;
   --placeholder-color: black;
+  @include responsive($mobileS) {
+    padding: $paddingBtn;
+    font-size: $textM;
+  }
   @include responsive($desktopS) {
     padding: $paddingBtn;
   }
@@ -45,6 +64,9 @@
 .list-bg {
   background: transparent;
   margin-top: .25rem;
+  @include responsive($mobileS) {
+    margin-top: $marginS;
+  }
   @include responsive($desktopS) {
     margin-top: $marginS;
   }
@@ -54,6 +76,10 @@
   width: 3.25rem;
   min-width: 3.25rem;
   padding-right: 8px;
+  @include responsive($mobileS) {
+    width: 4rem;
+    min-width: 4rem;
+  }
   @include responsive($desktopS) {
     width: 4.5rem;
     min-width: 4.5rem;

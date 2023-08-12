@@ -3,6 +3,9 @@
 
 div.ion-text-center {
   margin-top: .25rem;
+  @include responsive($mobileS) {
+    margin-top: var(--ion-margin, 16px);
+  }
   @include responsive($desktopS) {
     margin-top: var(--ion-margin, 16px);
   }
@@ -11,6 +14,9 @@ div.ion-text-center {
 .info-title {
   font-size: $textM;
   font-weight: bold;
+  @include responsive($mobileS) {
+    font-size: $textL;
+  }
   @include responsive($desktopS) {
     font-size: $textL;
   }
@@ -19,9 +25,13 @@ div.ion-text-center {
 .values-container {
   display: flex;
   justify-content: space-between;
-  padding: .5rem .75rem;
+  padding: .5rem;
   font-size: $textS;
   font-weight: bold;
+  @include responsive($mobileS) {
+    padding: 1rem;
+    font-size: $textM;
+  }
   @include responsive($desktopS) {
     padding: 1rem;
     font-size: $textM;

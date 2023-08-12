@@ -4,6 +4,9 @@
 .main-toolbar {
   --background: var(--ion-color-primary);
   --min-height: 48px;
+  @include responsive($mobileS) {
+    --min-height: 52px;
+  }
   @include responsive($desktopS) {
     --min-height: 56px;
   }
@@ -19,6 +22,12 @@
     --background: none;
     --background-activated: none;
     --box-shadow: none;
+    @include responsive($mobileS) {
+      --padding-start: 5px;
+      --padding-end: 5px;
+      --padding-top: 6px;
+      --padding-bottom: 6px;
+    }
     @include responsive($desktopS) {
       margin-top: 4px;
       margin-bottom: 4px;
@@ -31,6 +40,9 @@
     .toolbar-icon {
       font-size: $iconM;
       color: $colorWhite;
+      @include responsive($mobileS) {
+        font-size: $iconL;
+      }
       @include responsive($desktopS) {
         font-size: $iconL;
       }
@@ -41,6 +53,9 @@
     width: 1px;
     height: 36px;
     background: $colorGrey;
+    @include responsive($mobileS) {
+      height: 42px;
+    }
     @include responsive($desktopS) {
       height: 48px;
     }
@@ -50,6 +65,9 @@
     padding-left: 8px;
     color: $colorWhite;
     font-size: $textXL;
+    @include responsive($mobileS) {
+      font-size: $text2XL;
+    }
     @include responsive($desktopS) {
       font-size: $text2XL;
     }

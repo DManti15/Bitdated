@@ -5,9 +5,13 @@
   display: flex;
   justify-content: center;
   height: 250px;
-  padding: 0 .75rem;
-  @include responsive($mobileM) {
+  padding: 0 .5rem;
+  @include responsive($mobileS) {
     height: 275px;
+  }
+  @include responsive($mobileM) {
+    height: 320px;
+    padding: .75rem;
   }
   @include responsive($desktopL) {
     height: 365px;
