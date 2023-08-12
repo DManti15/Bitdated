@@ -6,6 +6,9 @@ div.ion-text-center {
   @include responsive($mobileS) {
     margin-top: var(--ion-margin, 16px);
   }
+  @include responsive($tabletS) {
+    margin-top: $marginM;
+  }
   @include responsive($desktopS) {
     margin-top: var(--ion-margin, 16px);
   }
@@ -30,6 +33,10 @@ div.ion-text-center {
   font-weight: bold;
   @include responsive($mobileS) {
     padding: 1rem;
+    font-size: $textM;
+  }
+  @include responsive($tabletS) {
+    padding: 1rem 2rem 2rem;
     font-size: $textM;
   }
   @include responsive($desktopS) {

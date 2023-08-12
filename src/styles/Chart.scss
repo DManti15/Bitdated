@@ -13,6 +13,10 @@
     height: 320px;
     padding: .75rem;
   }
+  @include responsive($tabletS) {
+    height: 365px;
+    padding: 1.5rem;
+  }
   @include responsive($desktopL) {
     height: 365px;
     padding: .75rem;

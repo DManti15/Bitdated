@@ -26,8 +26,12 @@
   @include responsive($mobileM) {
     padding: 0 1rem;
   }
+  @include responsive($tabletS) {
+    padding: 0 2rem;
+  }
   @include responsive($desktopS) {
     font-size: $textM;
+    padding: 0 1rem;
   }
 }
 
@@ -51,6 +55,14 @@
     --padding-end: 0.5rem;
     --inner-padding-end: 0;
     @include responsive($mobileM) {
+      --padding-start: 1rem;
+      --padding-end: 1rem;
+    }
+    @include responsive($tabletS) {
+      --padding-start: 2rem;
+      --padding-end: 2rem;
+    }
+    @include responsive($desktopS) {
       --padding-start: 1rem;
       --padding-end: 1rem;
     }

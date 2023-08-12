@@ -7,8 +7,8 @@
   @include responsive($mobileS) {
     font-size: $textXL;
   }
-  @include responsive($desktopS) {
-    font-size: $textXL;
+  @include responsive($tabletS) {
+    font-size: $text2XL;
   }
 }
 
@@ -23,6 +23,10 @@
   }
   @include responsive($mobileM) {
     padding: 0 1rem;
+  }
+  @include responsive($tabletS) {
+    margin-bottom: $marginM;
+    padding: 0 2rem;
   }
   @include responsive($desktopS) {
     margin-bottom: $marginS;
@@ -67,8 +71,8 @@
   @include responsive($mobileS) {
     margin-top: $marginS;
   }
-  @include responsive($desktopS) {
-    margin-top: $marginS;
+  @include responsive($tabletS) {
+    margin-top: $marginM;
   }
 }
 
@@ -80,7 +84,7 @@
     width: 4rem;
     min-width: 4rem;
   }
-  @include responsive($desktopS) {
+  @include responsive($tabletS) {
     width: 4.5rem;
     min-width: 4.5rem;
   }

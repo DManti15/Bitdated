@@ -7,7 +7,7 @@
   @include responsive($mobileS) {
     --min-height: 52px;
   }
-  @include responsive($desktopS) {
+  @include responsive($tabletS) {
     --min-height: 56px;
   }
 
@@ -28,7 +28,7 @@
       --padding-top: 6px;
       --padding-bottom: 6px;
     }
-    @include responsive($desktopS) {
+    @include responsive($tabletS) {
       margin-top: 4px;
       margin-bottom: 4px;
       --padding-start: 5px;
@@ -56,7 +56,7 @@
     @include responsive($mobileS) {
       height: 42px;
     }
-    @include responsive($desktopS) {
+    @include responsive($tabletS) {
       height: 48px;
     }
   }
