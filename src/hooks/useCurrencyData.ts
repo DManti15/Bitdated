@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { CURRENCY_API } from "../constants/apis";
 
 export function useCurrencyData() {
@@ -9,10 +9,10 @@ export function useCurrencyData() {
   const [currency, setCurrency] = useState<string>("Bitcoin");
   const [logo, setLogo] = useState<string>("assets/Images/logoBTC.png");
 
-  let currencySymbol = "BTC-USD";
+  const currencySymbolRef = useRef("BTC-USD");
 
   const getCurrencyData = () => {
-    fetch(`${CURRENCY_API}${currencySymbol}`)
+    fetch(`${CURRENCY_API}${currencySymbolRef.current}`)
       .then((response) => {
         return response.json();
       })
@@ -26,12 +26,12 @@ export function useCurrencyData() {
 
   const slcChange = (e: string) => {
     if (e === "Bitcoin") {
-      currencySymbol = "BTC-USD";
+      currencySymbolRef.current = "BTC-USD";
       setCurrency("Bitcoin");
       setLogo("assets/Images/logoBTC.png");
       getCurrencyData();
     } else if (e === "Ethereum") {
-      currencySymbol = "ETH-USD";
+      currencySymbolRef.current = "ETH-USD";
       setCurrency("Ethereum");
       setLogo("assets/Images/logoETH.png");
       getCurrencyData();
