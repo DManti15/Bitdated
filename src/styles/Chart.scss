@@ -17,8 +17,11 @@
     height: 365px;
     padding: 1.5rem;
   }
+  @include responsive($desktopXS) {
+    width: 50%;
+    height: 100%;
+  }
   @include responsive($desktopL) {
-    height: 365px;
     padding: .75rem;
   }
 }

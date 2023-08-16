@@ -7,7 +7,7 @@
   @include responsive($mobileS) {
     --min-height: 60px;
   }
-  @include responsive($desktopS) {
+  @include responsive($tabletS) {
     --min-height: 72px;
   }
 

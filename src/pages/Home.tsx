@@ -59,8 +59,6 @@ const Home: React.FC = () => {
       setThemeIcon(`${moon}`);
       setOptions(DARK_OPTIONS);
     }
-
-    
   });
 
   return (
@@ -77,16 +75,20 @@ const Home: React.FC = () => {
         <IonContent>
           <Header currency={currency} logo={logo} slcChange={slcChange} />
           <div className="home-section-line"></div>
-          <Chart options={options} />
-          <div className="home-section-line"></div>
-          <CurrencyInfo
-            symbol={symbol}
-            price={price}
-            price24h={price24h}
-            volume={volume}
-          />
-          <div className="home-section-line"></div>
-          <Converter price={price} />
+          <div className="main-wrapper">
+            <Chart options={options} />
+            <div className="home-section-line"></div>
+            <div className="home-wrapper">
+              <CurrencyInfo
+                symbol={symbol}
+                price={price}
+                price24h={price24h}
+                volume={volume}
+              />
+              <div className="home-section-line"></div>
+              <Converter price={price} />
+            </div>
+          </div>
         </IonContent>
       </IonPage>
     </>
