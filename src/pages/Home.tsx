@@ -86,7 +86,7 @@ const Home: React.FC = () => {
                 volume={volume}
               />
               <div className="home-section-line"></div>
-              <Converter price={price} />
+              <Converter price={price} currency={currency} />
             </div>
           </div>
         </IonContent>

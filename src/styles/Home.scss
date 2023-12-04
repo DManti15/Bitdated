@@ -3,6 +3,7 @@
 
 .home-section-line {
   height: 2px;
+  min-height: 2px;
   width: 80%;
   background-color: #152fa0;
   margin: 0 10% 0 10%;
@@ -17,8 +18,8 @@
     display: flex;
     align-items: center;
     position: relative;
-    height: 85%;
-    padding: 2rem 0;
+    height: 80%;
+    padding-bottom: .75rem;
     
     .home-section-line:nth-child(2) {
       height: 90%;

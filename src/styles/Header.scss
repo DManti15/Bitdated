@@ -28,7 +28,7 @@
     margin-bottom: $marginM;
     padding: 0 2rem;
   }
-  @include responsive($desktopS) {
+  @include responsive($desktopXS) {
     margin-bottom: $marginS;
   }
 
@@ -51,8 +51,13 @@
     padding: $paddingBtn;
     font-size: $textM;
   }
-  @include responsive($desktopS) {
+  @include responsive($desktopXS) {
+    padding: .5rem;
+    font-size: $textS;
+  }
+  @include responsive($desktopL) {
     padding: $paddingBtn;
+    font-size: $textM;
   }
 }
 
@@ -74,6 +79,9 @@
   @include responsive($tabletS) {
     margin-top: $marginM;
   }
+  @include responsive($desktopXS) {
+    margin-top: $marginS;
+  }
 }
 
 .logo-btc {
@@ -85,6 +93,14 @@
     min-width: 4rem;
   }
   @include responsive($tabletS) {
+    width: 4.5rem;
+    min-width: 4.5rem;
+  }
+  @include responsive($desktopXS) {
+    width: 4rem;
+    min-width: 4rem;
+  }
+  @include responsive($desktopL) {
     width: 4.5rem;
     min-width: 4.5rem;
   }

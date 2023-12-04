@@ -9,7 +9,7 @@ div.ion-text-center {
   @include responsive($tabletS) {
     margin-top: $marginM;
   }
-  @include responsive($desktopS) {
+  @include responsive($desktopXS) {
     margin-top: var(--ion-margin, 16px);
   }
 }
@@ -20,7 +20,10 @@ div.ion-text-center {
   @include responsive($mobileS) {
     font-size: $textL;
   }
-  @include responsive($desktopS) {
+  @include responsive($desktopXS) {
+    font-size: $textM;
+  }
+  @include responsive($desktopL) {
     font-size: $textL;
   }
 }
@@ -39,8 +42,12 @@ div.ion-text-center {
     padding: 1rem 2rem 2rem;
     font-size: $textM;
   }
-  @include responsive($desktopS) {
-    padding: 1rem;
+  @include responsive($desktopXS) {
+    padding: .75rem 2rem 1rem;
+    font-size: $textS;
+  }
+  @include responsive($desktopL) {
+    padding: 1rem 2rem 2rem;
     font-size: $textM;
   }
 }
