@@ -2,16 +2,16 @@ import { IonText } from "@ionic/react";
 import '../styles/CurrencyInfo.scss'
 
 interface CurrencyInfoProps {
-  symbol: string | undefined
-  price: number | undefined
-  price24h: number | undefined
-  volume: number | undefined
+  symbol: string 
+  price: number 
+  price24h: number 
+  volume: number 
 }
 
 const CurrencyInfo: React.FC<CurrencyInfoProps> = ({ symbol, price, price24h, volume }) => {
   return (
     <>
-      <div className="ion-text-center ion-margin-top">
+      <div className="ion-text-center">
         <IonText className="info-title">Prices</IonText>
       </div>
       <div className="values-container">

@@ -1,30 +1,21 @@
-import { IonIcon, IonImg, IonItem, IonList, IonSelect, IonSelectOption, IonText, IonToggle } from "@ionic/react";
-import { moon, sunny, chevronDownOutline } from "ionicons/icons";
-import { useState } from "react";
-import { DARK_OPTIONS, LIGHT_OPTIONS } from "../constants/chartOptions";
-import '../styles/Header.scss';
+import {
+  IonImg,
+  IonItem,
+  IonList,
+  IonSelect,
+  IonSelectOption,
+  IonText
+} from "@ionic/react";
+import { chevronDownOutline } from "ionicons/icons";
+import "../styles/Header.scss";
 
 interface HeaderProps {
-  currency: string
-  logo: string
-  slcChange: (e: string) => void
-  setOptions: React.Dispatch<React.SetStateAction<{}>>
+  currency: string;
+  logo: string;
+  slcChange: (e: string) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ currency, logo, slcChange, setOptions }) => {
-  const [darkIcon, setDarkIcon] = useState(`${sunny}`);
-
-  const toggleDarkModeHandler = () => {
-    document.body.classList.toggle("dark");
-    if (document.body.classList.contains("dark")) {
-      setDarkIcon(`${moon}`);
-      setOptions(DARK_OPTIONS);
-    } else {
-      setDarkIcon(`${sunny}`);
-      setOptions(LIGHT_OPTIONS);
-    }
-  };
-
+const Header: React.FC<HeaderProps> = ({ currency, logo, slcChange }) => {
   return (
     <>
       <IonList className="list-bg">
@@ -32,14 +23,6 @@ const Header: React.FC<HeaderProps> = ({ currency, logo, slcChange, setOptions }
           <IonItem color="none" lines="none">
             <IonImg className="logo-btc" src={logo}></IonImg>
             <IonText className="currency-name">{currency}</IonText>
-          </IonItem>
-          <IonItem lines="none" color="none">
-            <IonIcon slot="end" icon={darkIcon} />
-            <IonToggle
-              slot="end"
-              name="darkMode"
-              onIonChange={toggleDarkModeHandler}
-            />
           </IonItem>
           <IonItem color="none" lines="none" className="no-ripple">
             <IonSelect

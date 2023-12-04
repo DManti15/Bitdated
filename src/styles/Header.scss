@@ -3,14 +3,39 @@
 
 .currency-name {
   font-size: $textM;
-  font-weight: 600;
+  font-weight: bold;
+  @include responsive($mobileS) {
+    font-size: $textXL;
+  }
+  @include responsive($tabletS) {
+    font-size: $text2XL;
+  }
 }
 
 .currency-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $marginS;
+  margin-bottom: .25rem;
+  padding: 0 .5rem;
+  @include responsive($mobileS) {
+    margin-bottom: $marginS;
+  }
+  @include responsive($mobileM) {
+    padding: 0 1rem;
+  }
+  @include responsive($tabletS) {
+    margin-bottom: $marginM;
+    padding: 0 2rem;
+  }
+  @include responsive($desktopXS) {
+    margin-bottom: $marginS;
+  }
+
+  ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+  }
 }
 
 .currency-selector {
@@ -18,10 +43,22 @@
   justify-content: center;
   border: 2px solid var(--ion-color-dark);
   border-radius: 8px;
-  padding: $paddingBtn;
+  padding: .5rem;
   min-height: 0;
   font-size: $textS;
   --placeholder-color: black;
+  @include responsive($mobileS) {
+    padding: $paddingBtn;
+    font-size: $textM;
+  }
+  @include responsive($desktopXS) {
+    padding: .5rem;
+    font-size: $textS;
+  }
+  @include responsive($desktopL) {
+    padding: $paddingBtn;
+    font-size: $textM;
+  }
 }
 
 ::part(text) {
@@ -35,14 +72,36 @@
 
 .list-bg {
   background: transparent;
-  margin-top: 1vh;
+  margin-top: .25rem;
+  @include responsive($mobileS) {
+    margin-top: $marginS;
+  }
+  @include responsive($tabletS) {
+    margin-top: $marginM;
+  }
+  @include responsive($desktopXS) {
+    margin-top: $marginS;
+  }
 }
 
 .logo-btc {
-  width: 4rem;
-  min-width: 4rem;
+  width: 3.25rem;
+  min-width: 3.25rem;
   padding-right: 8px;
-  @include responsive($desktopS) {
-    width: 6rem;
+  @include responsive($mobileS) {
+    width: 4rem;
+    min-width: 4rem;
+  }
+  @include responsive($tabletS) {
+    width: 4.5rem;
+    min-width: 4.5rem;
+  }
+  @include responsive($desktopXS) {
+    width: 4rem;
+    min-width: 4rem;
+  }
+  @include responsive($desktopL) {
+    width: 4.5rem;
+    min-width: 4.5rem;
   }
 }

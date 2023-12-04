@@ -22,7 +22,6 @@ export function useChartData() {
           myDataArr.push(myData);
         });
         setOptions({ series: [{ data: myDataArr }] });
-        console.log(options);
       });
   };
 

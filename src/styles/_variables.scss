@@ -1,5 +1,5 @@
 //Media query breakpoints
-$mobileS: 330px;
+$mobileS: 360px;
 $mobileM: 400px;
 $mobileL: 480px;
 $tabletS: 600px;
@@ -14,11 +14,25 @@ $colorWhite: #ffffff;
 $colorGrey: #aaaaaa;
 
 //Text size
+$textXS: .75rem;
 $textS: 1rem;
-$textM: 2rem;
+$textM: 1.25rem;
+$textL: 1.5rem;
+$textXL: 1.75rem;
+$text2XL: 2rem;
+
+//Icon size
+$iconXS: 1.5rem;
+$iconS: 2rem;
+$iconM: 2.5rem;
+$iconL: 3rem;
+$iconXL: 3.5rem;
 
 //Margin size
-$marginS: 1.25rem;
+$marginXS: .75rem;
+$marginS: 1rem;
+$marginM: 2rem;
+$marginL: 3.5rem;
 
 //Button
 $paddingBtn: .75rem;

@@ -1,43 +1,129 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-.values-contained {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 15px 0 15px;
-  font-size: 20px;
-  margin-top: 15px;
+.convert-title {
+  font-size: $textM;
+  font-weight: bold;
+  @include responsive($mobileS) {
+    font-size: $textL;
+  }
+  @include responsive($desktopXS) {
+    font-size: $textM;
+  }
+  @include responsive($desktopL) {
+    font-size: $textL;
+  }
 }
 
-.input-container {
+.convert-container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 6px;
-  margin-bottom: 2rem;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  @include responsive($mobileS) {
+    margin-bottom: 1.5rem;
+  }
+  @include responsive($desktopXS) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0;
+  }
+  @include responsive($desktopL) {
+    gap: 2rem;
+  }
+
+  ion-item {
+    --padding-start: 0.5rem;
+    --padding-end: 0.5rem;
+    --inner-padding-end: 0;
+    @include responsive($mobileM) {
+      --padding-start: 1rem;
+      --padding-end: 1rem;
+    }
+    @include responsive($tabletS) {
+      --padding-start: 2rem;
+      --padding-end: 2rem;
+    }
+    @include responsive($desktopS) {
+      --padding-start: 1rem;
+      --padding-end: 1rem;
+    }
+
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      font-size: $textS;
+      font-weight: bold;
+      font-style: italic;
+      @include responsive($mobileS) {
+        font-size: $textM;
+      }
+      @include responsive($desktopXS) {
+        font-size: $textS;
+      }
+      @include responsive($desktopL) {
+        font-size: $textM;
+      }
+
+      .convert-label {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+
+  .conversion-icon {
+    font-size: $iconM;
+    @include responsive($mobileS) {
+      font-size: $iconL;
+    }
+    @include responsive($desktopXS) {
+      font-size: $iconS;
+    }
+    @include responsive($desktopL) {
+      font-size: $iconM;
+    }
+  }
+
+  .conversion-icon + ion-item > .input-container {
+    @include responsive($desktopXS) {
+      flex-direction: column-reverse;
+
+      .convert-label {
+        margin-bottom: 0;
+        margin-top: 0.25rem;
+      }
+    }
+  }
 
   ion-input.conversion-input[type="number"] {
     width: 100%;
     border: 2px solid var(--ion-color-dark);
     border-radius: 8px;
-    --padding-top: .5rem;
-    --padding-end: .25rem;
-    --padding-start: .25rem;
-    --padding-bottom: .5rem;
+    --padding-top: 0.5rem;
+    --padding-end: 0.5rem;
+    --padding-start: 0.5rem;
+    --padding-bottom: 0.5rem;
     font-style: italic;
+    font-weight: normal;
+    min-height: 0;
+    @include responsive($mobileS) {
+      --padding-top: 0.75rem;
+      --padding-end: 0.75rem;
+      --padding-start: 0.75rem;
+      --padding-bottom: 0.75rem;
+    }
+    @include responsive($desktopXS) {
+      --padding-top: 0.5rem;
+      --padding-end: 0.5rem;
+      --padding-start: 0.5rem;
+      --padding-bottom: 0.5rem;
+    }
   }
 }
 
 .has-focus {
   border: 2px solid var(--ion-color-primary);
   transition: ease 0.2s;
-}
-
-.conversion-icon {
-  font-size: 2.5rem;
-}
-
-.convert-title {
-  font-size: 22px;
-  font-weight: 600;
 }

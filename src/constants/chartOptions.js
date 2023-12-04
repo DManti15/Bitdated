@@ -1,7 +1,6 @@
 const DEFAULT_OPTIONS = {
   chart: {
     backgroundColor: "transparent",
-    height: "300",
   },
 
   title: {

@@ -1,26 +1,66 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+div.ion-text-center {
+  margin-top: .25rem;
+  @include responsive($mobileS) {
+    margin-top: var(--ion-margin, 16px);
+  }
+  @include responsive($tabletS) {
+    margin-top: $marginM;
+  }
+  @include responsive($desktopXS) {
+    margin-top: var(--ion-margin, 16px);
+  }
+}
+
+.info-title {
+  font-size: $textM;
+  font-weight: bold;
+  @include responsive($mobileS) {
+    font-size: $textL;
+  }
+  @include responsive($desktopXS) {
+    font-size: $textM;
+  }
+  @include responsive($desktopL) {
+    font-size: $textL;
+  }
+}
+
 .values-container {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  font-size: 20px;
+  padding: .5rem;
+  font-size: $textS;
+  font-weight: bold;
+  @include responsive($mobileS) {
+    padding: 1rem;
+    font-size: $textM;
+  }
+  @include responsive($tabletS) {
+    padding: 1rem 2rem 2rem;
+    font-size: $textM;
+  }
+  @include responsive($desktopXS) {
+    padding: .75rem 2rem 1rem;
+    font-size: $textS;
+  }
+  @include responsive($desktopL) {
+    padding: 1rem 2rem 2rem;
+    font-size: $textM;
+  }
 }
 
 .revenue-container {
   text-align: start;
-  font-size: 21px;
-  font-weight: 600;
 }
 
 .price-container {
   text-align: end;
-  font-size: 21px;
-  font-weight: 600;
 }
 
 .revenue-text {
-  font-size: 1.15rem;
   font-style: italic;
+  font-weight: normal;
 }

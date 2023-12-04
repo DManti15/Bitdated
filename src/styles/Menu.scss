@@ -1,0 +1,55 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.menu-toolbar {
+  --background: var(--ion-color-primary);
+  --min-height: 48px;
+  @include responsive($mobileS) {
+    --min-height: 60px;
+  }
+  @include responsive($tabletS) {
+    --min-height: 72px;
+  }
+
+  .menu-toolbar-title {
+    color: $colorWhite;
+    font-size: $textXL;
+    padding-inline: 5px;
+    @include responsive($mobileS) {
+      font-size: $text2XL;
+    }
+  }
+
+  .back-btn {
+    margin-top: 0;
+    margin-bottom: 0;
+    --padding-start: 2px;
+    --padding-end: 2px;
+    --padding-top: 2px;
+    --padding-bottom: 2px;
+    --color: none;
+    --background: none;
+    --background-activated: none;
+    --box-shadow: none;
+    @include responsive($mobileS) {
+      --padding-start: 5px;
+      --padding-end: 5px;
+    }
+
+    .back-icon {
+      color: $colorWhite;
+      font-size: $iconM;
+    }
+  }
+}
+
+.menu-list {
+  background: transparent;
+
+  .theme-label {
+    font-size: $textS;
+    @include responsive($mobileS) {
+      font-size: $textM;
+    }
+  }
+}
